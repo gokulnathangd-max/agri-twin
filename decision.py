@@ -95,7 +95,10 @@ def evaluate_options(
 
             options.append({
                 "market": market_name,
+                "category": market_entry.get("category", "General Mandi"),
                 "distance_km": market_entry.get("distance_km", 0),
+                "daily_volume_tons": market_entry.get("daily_volume_tons", 0),
+                "buyer_demand": market_entry.get("buyer_demand", "Normal"),
                 "day": target_date.strftime("%a, %b %d"),
                 "day_name": target_date.strftime("%A"),
                 "date": target_date,
