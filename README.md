@@ -104,24 +104,3 @@ This hackathon prototype uses three primary simulated components:
 
 ---
 
-## ⚙️ How to Calibrate & Extend
-
-### Replacing Mock Prices with Real-World Mandi Feeds
-To use live mandi data, replace or update `data/markets.json` with an automated sync script connecting to the [AGMARKNET API](https://agmarknet.gov.in/) or state agricultural marketing board APIs:
-```json
-{
-  "name": "Coimbatore Mandi",
-  "distance_km": 35,
-  "transport_cost_per_kg": 2.5,
-  "price_per_kg": {
-    "Tomato": [22.0, 23.5, 24.0, ...],
-    "Onion": [28.0, 29.0, 28.5, ...]
-  }
-}
-```
-
-### Calibrating Decay Constants
-Edit `BASE_DECAY_RATES` and `REFERENCE_TEMP_C` at the top of `decay.py`:
-- Use empirical laboratory data (e.g., physiological loss in weight (PLW), firmness, and sugar content decay curves).
-- Add relative humidity ($RH$) and cold-storage humidity factors by introducing an additional decay modifier:
-  $$k_{\text{eff}} = k_{\text{base}} \cdot f(T) \cdot g(RH)$$
